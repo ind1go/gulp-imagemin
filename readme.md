@@ -1,6 +1,8 @@
 # gulp-imagemin [![Build Status](https://travis-ci.com/sindresorhus/gulp-imagemin.svg?branch=master)](https://travis-ci.com/sindresorhus/gulp-imagemin) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
 
-> Minify PNG, JPEG, GIF and SVG images with [`imagemin`](https://github.com/imagemin/imagemin)
+**This fork removes Gifsicle from the plugins applied, because it is not currently shipping precompiled libraries and fails to build in many environments.**
+
+> Minify PNG, JPEG and SVG images with [`imagemin`](https://github.com/imagemin/imagemin)
 
 *Issues with the output should be reported on the [`imagemin` issue tracker](https://github.com/imagemin/imagemin/issues).*
 
@@ -30,7 +32,6 @@ exports.default = () => (
 ```js
 // …
 .pipe(imagemin([
-	imagemin.gifsicle({interlaced: true}),
 	imagemin.mozjpeg({quality: 75, progressive: true}),
 	imagemin.optipng({optimizationLevel: 5}),
 	imagemin.svgo({
@@ -82,7 +83,6 @@ Note that you may come across an older, implicit syntax. In versions < 3, the sa
 
 Comes bundled with the following optimizers:
 
-- [gifsicle](https://github.com/imagemin/imagemin-gifsicle) — *Compress GIF images, lossless*
 - [mozjpeg](https://github.com/imagemin/imagemin-mozjpeg) — *Compress JPEG images, lossy*
 - [optipng](https://github.com/imagemin/imagemin-optipng) — *Compress PNG images, lossless*
 - [svgo](https://github.com/imagemin/imagemin-svgo) — *Compress SVG images, lossless*
@@ -96,7 +96,7 @@ Unsupported files are ignored.
 #### plugins
 
 Type: `Array`\
-Default: `[imagemin.gifsicle(), imagemin.mozjpeg(), imagemin.optipng(), imagemin.svgo()]`
+Default: `[imagemin.mozjpeg(), imagemin.optipng(), imagemin.svgo()]`
 
 [Plugins](https://www.npmjs.com/browse/keyword/imageminplugin) to use. This will completely overwrite all the default plugins. So, if you want to use custom plugins and you need some of defaults too, then you should pass default plugins as well. Note that the default plugins come with good defaults and should be sufficient in most cases. See the individual plugins for supported options.
 

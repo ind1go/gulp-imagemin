@@ -8,7 +8,7 @@ const imagemin = require('imagemin');
 const plur = require('plur');
 
 const PLUGIN_NAME = 'gulp-imagemin';
-const defaultPlugins = ['gifsicle', 'mozjpeg', 'optipng', 'svgo'];
+const defaultPlugins = ['mozjpeg', 'optipng', 'svgo'];
 
 const loadPlugin = (plugin, ...args) => {
 	try {
@@ -44,7 +44,7 @@ module.exports = (plugins, options) => {
 		...options
 	};
 
-	const validExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.svg'];
+	const validExtensions = ['.jpg', '.jpeg', '.png', '.svg'];
 
 	let totalBytes = 0;
 	let totalSavedBytes = 0;
@@ -118,7 +118,6 @@ module.exports = (plugins, options) => {
 	});
 };
 
-module.exports.gifsicle = exposePlugin('gifsicle');
 module.exports.mozjpeg = exposePlugin('mozjpeg');
 module.exports.optipng = exposePlugin('optipng');
 module.exports.svgo = exposePlugin('svgo');
